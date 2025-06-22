@@ -1,1 +1,5 @@
-/* You can add global styles to this file, and also import other style files */
+#body-content {
+    background-color: #3A3E4B; /* Same as navbar for consistency */
+    color: white;
+    padding-top: 30px;
+}

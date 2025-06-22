@@ -1,0 +1,63 @@
+<body>
+<nav>
+  <div class="navbar navbar-expand-lg pt-4">
+    <div class="container-fluid">
+      <a href="#" class="brand text-decoration-none d-block d-lg-none fw-bold fs-1">LOGO</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+        data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+        aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+        <ul id="nav-length" class="navbar-nav justify-content-between border-top border-2 text-center">
+          
+          <li class="nav-item">
+            <a routerLink="/" class="nav-link border-hover py-3 text-white">Home</a>
+          </li>
+          <li class="nav-item">
+            <a routerLink="/competition" class="nav-link border-hover py-3 text-white">Competiton</a>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link border-hover py-3 text-white">Past Winers</a>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link border-hover py-3 text-white">Contact Us</a>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link border-hover py-3 text-white">Blog</a>
+          </li>
+
+          <!-- Show if NOT logged in -->
+          <li class="nav-item" *ngIf="!userService.loggedUser">
+            <a routerLink="/register" class="nav-link border-hover py-3 text-white">Sign up</a>
+          </li>
+
+          <li class="nav-item" *ngIf="!userService.loggedUser">
+            <a routerLink="/login" id="sign-in" class="nav-link my-2 px-4 text-white">
+              <img class="me-3" src="assets/person-circle.svg" alt="person">
+              Log In
+            </a>
+          </li>
+
+          <!-- Show if logged in -->
+          <li class="nav-item dropdown" *ngIf="userService.loggedUser">
+            <a class="btn btn-secondary dropdown-toggle mt-2" href="#" role="button" id="dropdownMenuLink"
+              data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Welcome, {{ userService.loggedUser }}
+            </a>
+
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+              <a class="dropdown-item" href="#">Profile</a>
+              <a class="dropdown-item" href="#">Settings</a>
+              <a class="dropdown-item" href="#" (click)="logout()">Logout</a>
+            </div>
+          </li>
+
+        </ul>
+      </div>
+    </div>
+  </div>
+</nav>
+
+</body>

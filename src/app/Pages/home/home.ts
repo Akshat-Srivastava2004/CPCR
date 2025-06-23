@@ -1,18 +1,20 @@
 import { Component, inject, OnInit } from '@angular/core';
-import { Navbar } from "../navbar/navbar";
 import { CompetitionService } from '../../services/competition';
 import { CompetitionModel } from '../../model/competition.model';
 import { FormsModule } from '@angular/forms';
 import { DatePipe } from '@angular/common';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-home',
-  imports: [FormsModule,DatePipe],
+  imports: [FormsModule,DatePipe,RouterLink],
   templateUrl: './home.html',
   styleUrl: './home.css'
 })
 export class Home implements OnInit{
      getalldata=inject(CompetitionService)
+
+
      gridlist:CompetitionModel[]=[];
 
 

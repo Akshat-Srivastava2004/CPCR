@@ -58,19 +58,27 @@
             <th>Start Date</th>
             <th>End Date</th>
             <th>Status</th>
+            <th>Delete</th>
+            <th>Update</th>
           </tr>
         </thead>
 
-        @for (item of gridlist;track $index){
-         <tr>
-          <td>{{$index + 1}}</td>
-          <td>{{item.title}}</td>
-          <td>{{item.description}}</td>
-          <td>{{item.startDate | date:'dd-mm-yyyy'}}</td>
-          <td>{{item.endDate | date:'dd-mm-yyyy'}}</td>
-          <td>{{item.status}}</td>
-        </tr>
-        }
+       <tr *ngFor="let item of gridlist; index as i">
+       <td>{{ i + 1 }}</td>
+       <td>{{ item.title }}</td>
+       <td>{{ item.description }}</td>
+       <td>{{ item.startDate | date:'dd-MM-yyyy' }}</td>
+       <td>{{ item.endDate | date:'dd-MM-yyyy' }}</td>
+      <td>{{ item.status }}</td>
+  <td>
+    <button type="button" class="btn btn-primary" (click)="onDelete(item.competitionId)">Delete</button>
+  </td>
+  <td>
+    <button type="button" class="btn btn-secondary">Update</button>
+  </td>
+</tr>
+
+        
       
         <tbody>
           <!-- Table rows added dynamically -->

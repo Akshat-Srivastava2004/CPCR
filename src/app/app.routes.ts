@@ -27,7 +27,7 @@ export const routes: Routes = [
         component:Login
     },
     {
-        path:'submitProject',
+        path:'submitProject/:id',
         component:SubmitProject
     },
     {

@@ -72,7 +72,7 @@
                         <span><i class="fas fa-users"></i> 1,200+ participants</span>
                         <span><i class="fas fa-calendar"></i>{{item.endDate | date: "dd-mm-yyyy"}}</span>
                     </div>
-                    <button class="btn btn-primary">Register Now</button>
+                   <a [routerLink]="'/submitProject/'+item.competitionId"  class="btn btn-primary">Register Now</a> 
                 </div>
 
                 }

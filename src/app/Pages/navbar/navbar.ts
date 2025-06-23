@@ -15,6 +15,7 @@ export class Navbar {
 
      logout() {
   localStorage.removeItem("studentId");
+  localStorage.removeItem("loggedUser");
   this.userService.loggedUser = "";
   this.router.navigateByUrl("/home")
 }

@@ -1,1 +1,84 @@
-<p>submit-project works!</p>
+<body>
+
+<div class="container py-5">
+
+  <!-- Title -->
+  <div class="text-center mb-5">
+    <h1 class="display-5 fw-bold text-primary">Project Submission Portal</h1>
+    <p class="text-muted">Submit your project for the selected competition</p>
+  </div>
+
+  <!-- Guidelines -->
+  <div class="highlight mb-4">
+    <h5>Submission Guidelines</h5>
+    <ul class="mb-0">
+      <li>Project title must be unique and relevant.</li>
+      <li>Only GitHub public links are allowed.</li>
+      <li>Submit before the competition deadline.</li>
+      <li>Maximum 5 team members allowed.</li>
+      <li>Rank will be announced after evaluation.</li>
+    </ul>
+  </div>
+
+  <!-- Form -->
+  <div class="card p-4 mb-5">
+    <h4 class="mb-4 text-success">Submit Your Project</h4>
+    <form>
+      <div class="row mb-3">
+        <div class="col-md-6">
+          <label for="projectTitle" class="form-label">Project Title</label>
+          <input type="text"   [(ngModel)]="projectObj.projectTitle" name="projectTitle" class="form-control" id="projectTitle" placeholder="Enter project title">
+        </div>
+        <div class="col-md-6">
+          <label for="githubLink" class="form-label">GitHub Link</label>
+          <input type="url"  [(ngModel)]="projectObj.githubLink" name="githubLink" class="form-control" id="githubLink" placeholder="https://github.com/your-repo">
+        </div>
+      </div>
+      <div class="mb-3">
+        <label for="description" class="form-label">Project Description</label>
+        <textarea class="form-control"  [(ngModel)]="projectObj.description" name="description" id="description" rows="3" placeholder="Describe your project..."></textarea>
+      </div>
+      <div class="mb-3">
+        <label for="teamMembers" class="form-label">Submission Date</label>
+        <input type="Date" class="form-control" [(ngModel)]="projectObj.submissionDate" name="submissionDate"   id="Date">
+      </div>
+      <button (click)="onSave()"  type="submit" class="btn btn-primary px-4">Submit</button>
+    </form>
+  </div>
+
+  <!-- Selected Competitions Table -->
+  <div class="card p-4">
+    <h4 class="mb-3 text-secondary">Your Selected Competitions</h4>
+    <div class="table-responsive">
+      <table class="table table-striped align-middle">
+        <thead class="table-dark">
+          <tr>
+            <th>Competition ID</th>
+            <th>Title</th>
+            <th>Description</th>
+            <th>Start Date</th>
+            <th>End Date</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+           
+            <tr *ngIf="competitionData">
+            <td>{{competitionData.competitionId}}</td>
+            <td>{{competitionData.title}}</td>
+            <td>{{competitionData.description}}</td>
+            <td>{{competitionData.startDate | date :"dd-mm-yyyy"}}</td>
+            <td>{{competitionData.endDate | date : "dd-mm-yyyy"}}</td>
+            <td>{{competitionData.status}}</td>
+          </tr>
+        
+          
+          <!-- Add more rows dynamically -->
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+</div>
+
+</body>

@@ -2,10 +2,10 @@ import { Component, inject, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { CompetitionModel } from '../../model/competition.model';
 import { CompetitionService } from '../../services/competition';
-import { DatePipe } from '@angular/common';
+import { CommonModule, DatePipe } from '@angular/common';
 @Component({
   selector: 'app-competition',
-  imports: [FormsModule,DatePipe],
+  imports: [FormsModule,DatePipe,CommonModule],
   templateUrl: './competition.html',
   styleUrl: './competition.css'
 })
@@ -15,6 +15,20 @@ export class Competition implements OnInit {
          competitonservice = inject(CompetitionService)
 
          gridlist: CompetitionModel[]=[];
+
+
+         onDelete(id:number){
+          this.competitonservice.deletecompetition(id).subscribe({
+            next :()=>{
+                  alert("delete successfully")
+                  this.gridlist = this.gridlist.filter(item => item.competitionId !== id);
+            },
+            error:()=>{
+                 alert("not deleted ")
+            }
+          })
+         }
+
 
          ngOnInit(): void {
           debugger

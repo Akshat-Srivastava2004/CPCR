@@ -44,7 +44,7 @@
           <li class="nav-item dropdown" *ngIf="userService.loggedUser">
             <a class="btn btn-secondary dropdown-toggle mt-2" href="#" role="button" id="dropdownMenuLink"
               data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Welcome, {{ userService.loggedUser }}
+              Welcome, {{ userService.loggedUserData?.email }}
             </a>
 
             <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">

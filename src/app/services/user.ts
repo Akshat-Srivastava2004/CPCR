@@ -8,10 +8,14 @@ export class UserService {
 
   loggedUser:string ="";
 
+  loggedUserData:any=undefined;
+
   constructor(private http:HttpClient ) {
     const loggedData=localStorage.getItem("studentId");
-    if(loggedData!=null){
+   const logedUserData= localStorage.getItem("loggedUser")
+    if(loggedData!=null && logedUserData!=null){
       this.loggedUser=loggedData
+      this.loggedUserData=JSON.parse(logedUserData)
     }
   }
 

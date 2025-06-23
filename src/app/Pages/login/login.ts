@@ -27,8 +27,10 @@ onLogin(){
       next:(res:any)=>{
         debugger
         localStorage.setItem("studentId",res.userId)
+        localStorage.setItem("loggedUser",JSON.stringify(res))
         this.router.navigateByUrl("/home")
         this.userService.loggedUser=res.userId
+        this.userService.loggedUserData=res;
         console.log("the response is ",res)
         alert("User Found")
       },
